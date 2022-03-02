@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  aws-ecr: circleci/aws-ecr@7.3.0
+  aws-ecr: circleci/aws-ecr@6.1.0
   aws-ecs: circleci/aws-ecs@02.2.1
 
 workflows:
@@ -10,11 +10,11 @@ workflows:
       - aws-ecr/build-and-push-image:
           context: aws
           repo: "${AWS_RESOURCE_NAME_PREFIX}-dev"
-          tag: "latest"
+          tag: "${CIRCLE_SHA1}"
       - aws-ecs/deploy-service-update:
           requires:
             - aws-ecr/build-and-push-image
           context: aws  
           family: "${AWS_RESOURCE_NAME_PREFIX}-service-dev"
           cluster-name: "${AWS_RESOURCE_NAME_PREFIX}-cluster-dev"
-          container-image-name-updates: "container=${AWS_RESOURCE_NAME_PREFIX}-service,tag=latest"
+          container-image-name-updates: "container=${AWS_RESOURCE_NAME_PREFIX}-service,tag=${CIRCLE_SHA1}"
