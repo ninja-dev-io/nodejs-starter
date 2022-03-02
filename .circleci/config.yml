@@ -9,12 +9,12 @@ workflows:
     jobs:
       - aws-ecr/build-and-push-image:
           context: aws
-          repo: "${AWS_RESOURCE_NAME_PREFIX}"
+          repo: "${AWS_RESOURCE_NAME_PREFIX}-dev"
           tag: "${CIRCLE_SHA1}"
       - aws-ecs/deploy-service-update:
           requires:
             - aws-ecr/build-and-push-image
           context: aws  
-          family: "${AWS_RESOURCE_NAME_PREFIX}-service"
-          cluster-name: "${AWS_RESOURCE_NAME_PREFIX}-cluster"
+          family: "${AWS_RESOURCE_NAME_PREFIX}-service-dev"
+          cluster-name: "${AWS_RESOURCE_NAME_PREFIX}-cluster-dev"
           container-image-name-updates: "container=${AWS_RESOURCE_NAME_PREFIX}-service,tag=${CIRCLE_SHA1}"
