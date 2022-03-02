@@ -9,10 +9,9 @@ workflows:
     jobs:
       - aws-ecr/build-and-push-image:
           context: aws  
-          region: AWS_REGION
-          account-url: AWS_ECR_ACCOUNT_URL
+          account-url: ${AWS_ECR_ACCOUNT_URL}
           repo: "${AWS_RESOURCE_NAME_PREFIX}-dev"
-          tag: CIRCLE_BUILD_NUM
+          tag: ${CIRCLE_BUILD_NUM}
       - aws-ecs/deploy-service-update:
           requires:
             - aws-ecr/build-and-push-image
