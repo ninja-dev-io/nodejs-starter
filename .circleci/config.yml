@@ -10,7 +10,7 @@ workflows:
       - aws-ecr/build-and-push-image:
           context: aws  
           account-url: AWS_ECR_ACCOUNT_URL
-          repo: "${AWS_RESOURCE_NAME_PREFIX}-dev"
+          repo: ninjadev-dev
           tag: "CIRCLE_BUILD_NUM"
       - aws-ecs/deploy-service-update:
           requires:
