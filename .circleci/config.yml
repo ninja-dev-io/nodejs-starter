@@ -18,4 +18,4 @@ workflows:
           aws-region: AWS_REGION
           family: "${AWS_RESOURCE_NAME_PREFIX}-service-dev"
           cluster-name: "${AWS_RESOURCE_NAME_PREFIX}-cluster-dev"
-          container-image-name-updates: "container=${AWS_RESOURCE_NAME_PREFIX}-service-dev,tag=${CIRCLE_SHA1}"
+          container-image-name-updates: "container=${AWS_RESOURCE_NAME_PREFIX}-dev,tag=${CIRCLE_SHA1}"
