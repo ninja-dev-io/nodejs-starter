@@ -1,4 +1,4 @@
-FROM node:17.6
+FROM node:latest
 
 EXPOSE 5000
 
