@@ -1,4 +1,5 @@
 import { Application } from 'express';
+import { morganMiddleware } from '../common/logger';
 import * as bodyParser from 'body-parser';
 import cors from 'cors';
 
@@ -7,6 +8,7 @@ export default (app: Application) => {
   app.head('/status', (req, res) => { res.status(200).end(); });
   app.enable('trust proxy');
   app.use(cors());
+  app.use(morganMiddleware)
   app.use(bodyParser.urlencoded({ extended: false }));
   return app;
 }
