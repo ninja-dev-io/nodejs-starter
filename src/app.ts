@@ -6,7 +6,7 @@ import api from './api';
 async function run() {
   const app: Application = express();
   const router: Router = express.Router();
-  const port = 5000;
+  const port = config.port;
   loaders(app);
   api(router);
   app.use(router);
