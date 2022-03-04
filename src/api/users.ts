@@ -4,6 +4,6 @@ export default async (router: Router) => {
 
   const path = '/users'
 
-  router.get(path, (req: Request, res: Response) => { res.json({ "name": "Sejo Lav" }); });
+  router.get(path, (req: Request, res: Response) => { res.json({ "name": "NINJA-DEV" }); });
 
 }
