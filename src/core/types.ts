@@ -1,0 +1,1 @@
+export default {Logger: Symbol.for("Logger")};

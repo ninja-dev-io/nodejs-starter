@@ -1,19 +1,12 @@
-import express, { Application, Router } from 'express';
-import config from './config';
-import loaders from './loaders';
-import api from './api';
-import { logger } from './common/logger';
+import "reflect-metadata";
+import config from "./config";
+import server from "./core/server";
+import container from "./core/container";
+import TYPES from "./core/types";
+import { Logger } from "./core/logger";
 
-async function run() {
-  const app: Application = express();
-  const router: Router = express.Router();
-  const port = config.port;
-  loaders(app);
-  api(router);
-  app.use(router);
-  app.listen(port, () => {
-    logger.info(`Express is listening at http://localhost:${port}`);
-  });
-}
+const logger: Logger = container.get<Logger>(TYPES.Logger);
 
-run()
+server
+  .build()
+  .listen(config.port, () => logger.instance.info(`Listen on http://localhost:${config.port}/`));
