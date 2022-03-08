@@ -11,6 +11,6 @@ export class UsersController {
   
   @httpGet("/")
   public async get(req: Request, res: Response) {
-    return res.send("NINJA-DEV");
+    return res.send("FUDO CEO");
   }
 }
