@@ -1,1 +1,1 @@
-export default {Logger: Symbol.for("Logger")};
+export default {Logger: Symbol.for('Logger'), Database: Symbol.for('Database')};

@@ -1,7 +1,7 @@
-import { InversifyExpressServer } from "inversify-express-utils"
+import { InversifyExpressServer } from 'inversify-express-utils';
 import { Logger } from './logger';
-import container from "./container";
-import TYPES from "./types";
+import container from './container';
+import TYPES from './types';
 import cors from 'cors';
 import * as bodyParser from 'body-parser';
 

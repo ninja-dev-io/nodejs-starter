@@ -4,9 +4,12 @@
   "description": "NodeJS Starter (Express, Typescript, PostgreSQL)",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint . --fix",
+    "format:write": "prettier --write .",
+   "lint:check": "eslint .",
+   "lint:fix": "eslint --fix .",
     "build": "tsc",
     "start": "tsc && node dist/app.js",
+    "dev": "nodemon -L -e ts --exec \"npm run start\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -24,6 +27,9 @@
     "@typescript-eslint/eslint-plugin": "^5.12.1",
     "@typescript-eslint/parser": "^5.12.1",
     "eslint": "^8.10.0",
+    "eslint-config-prettier": "^8.5.0",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.5.1",
     "ts-node": "^10.5.0",
     "typescript": "^4.5.5"
   },
@@ -42,7 +48,9 @@
     "inversify": "^6.0.1",
     "inversify-express-utils": "^6.4.3",
     "morgan": "^1.10.0",
+    "pg": "^8.7.3",
     "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.2.45",
     "winston": "^3.6.0"
   }
 }
