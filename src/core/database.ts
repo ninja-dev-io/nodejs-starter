@@ -1,8 +1,10 @@
 import { injectable } from 'inversify';
 import { inject } from 'inversify';
 import { Connection, createConnection, ObjectType } from 'typeorm';
-import TYPES from './types';
 import { Logger } from './logger';
+import TYPES from './types';
+import config from '../config';
+import { User } from '../repositories/users';
 
 @injectable()
 export class Database {
@@ -12,7 +14,17 @@ export class Database {
 
   public async getConnection(): Promise<Connection> {
     try {
-      Database.connection = await createConnection();
+      if (Database.connection instanceof Connection) {
+        return Database.connection;
+      }
+      Database.connection = await createConnection({
+        type: 'postgres',
+        host: config.host,
+        username: config.username,
+        password: config.password,
+        database: config.database,
+        entities: [User]
+      });
       this.logger.instance.info('Connection established');
       return Database.connection;
     } catch (e) {
@@ -23,6 +35,6 @@ export class Database {
 
   public async getRepository<T>(repository: ObjectType<T>): Promise<T> {
     const connection = await this.getConnection();
-    return await connection.getCustomRepository<T>(repository);
+    return connection.getCustomRepository<T>(repository);
   }
 }
