@@ -2,8 +2,8 @@ import { Container } from 'inversify';
 import TYPES from './types';
 import { Logger } from './logger';
 import { Database } from './database';
-import '../controllers/users';
 import UserService from '../services/users';
+import '../controllers/users';
 
 const container = new Container();
 container.bind(TYPES.Logger).to(Logger).inSingletonScope();
