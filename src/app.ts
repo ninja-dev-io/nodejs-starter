@@ -7,6 +7,6 @@ import { Logger } from './core/logger';
 
 const logger: Logger = container.get<Logger>(TYPES.Logger);
 
-server
-  .build()
-  .listen(config.port, () => logger.instance.info(`Listen on http://localhost:${config.port}/`));
+const app = server.listen(config.port, () => logger.instance.info(`Listen on http://localhost:${config.port}/`));
+
+export default app;

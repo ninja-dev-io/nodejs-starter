@@ -1,5 +1,4 @@
 import {config} from 'dotenv';
-import { DatabaseType } from 'typeorm';
 
 config();
 

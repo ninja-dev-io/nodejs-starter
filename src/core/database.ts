@@ -20,7 +20,7 @@ export class Database {
       Database.connection = await createConnection({
         type: 'postgres',
         host: config.host,
-        port: 5431,
+        port: 5432,
         username: config.username,
         password: config.password,
         database: config.database,
