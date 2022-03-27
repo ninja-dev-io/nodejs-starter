@@ -1,13 +1,12 @@
 version: 2.1
 
 orbs:
-  be-orb: ninja-dev-io/be-orb@1.0.8
+  be-orb: ninja-dev-io/be-orb@1.0.9
 
 workflows:
   build-and-deploy:
     jobs:
-      - be-orb/test:
-          env-file: ./.env.test
+      - be-orb/test
       - be-orb/build:
           requires:
             - be-orb/test
