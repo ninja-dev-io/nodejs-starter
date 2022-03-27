@@ -10,6 +10,4 @@ COPY . .
 
 RUN npm run build
 
-RUN ls dist/
-
 CMD [ "node", "./dist/src/app.js" ]
