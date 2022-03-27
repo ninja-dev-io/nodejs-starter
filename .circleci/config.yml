@@ -6,7 +6,8 @@ orbs:
 workflows:
   build-and-deploy:
     jobs:
-      - be-orb/test
+      - be-orb/test:
+          env-file: .env.test
       - be-orb/build:
           requires:
             - be-orb/test
