@@ -8,8 +8,8 @@ RUN npm install
 
 COPY . .
 
-RUN mkdir /dist
-
 RUN npm run build
+
+RUN ls dist/
 
 CMD [ "node", "./dist/app.js" ]
