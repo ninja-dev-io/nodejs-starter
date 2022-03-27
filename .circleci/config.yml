@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  be-orb: ninja-dev-io/be-orb@1.0.3
+  be-orb: ninja-dev-io/be-orb@1.0.4
 
 workflows:
   build-and-deploy:
