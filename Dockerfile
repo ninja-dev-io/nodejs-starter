@@ -12,4 +12,4 @@ RUN npm run build
 
 RUN ls dist/
 
-CMD [ "node", "./dist/app.js" ]
+CMD [ "node", "./dist/src/app.js" ]
