@@ -11,7 +11,7 @@ export class UsersController {
 
   constructor(@inject(TYPES.UserService) private readonly userService: UserService, @inject(TYPES.Logger) private readonly logger: Logger) {}
 
-  @httpGet('/', authorize(['users_read']))
+  @httpGet('/')
   public async get(req: Request, res: Response) {
     const users = await this.userService.getUsers();
     return res.json(users);
