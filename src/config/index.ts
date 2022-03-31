@@ -9,5 +9,6 @@ export default {
   database: process.env.DB,
   username: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
-  auth_api: process.env.AUTH_API
+  auth_api: process.env.AUTH_API,
+  region: process.env.REGION
 };

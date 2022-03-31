@@ -6,7 +6,8 @@ orbs:
 workflows:
   build-and-deploy:
     jobs:
-      - be-orb/test
+      - be-orb/test:
+          skip-test: true
       - be-orb/build:
           requires:
             - be-orb/test

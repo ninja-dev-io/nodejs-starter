@@ -50,6 +50,7 @@
     "@types/morgan": "^1.9.3",
     "@types/reflect-metadata": "^0.1.0",
     "@types/winston": "^2.4.4",
+    "aws-sdk": "^2.1105.0",
     "axios": "^0.26.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
