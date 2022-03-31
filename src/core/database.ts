@@ -41,6 +41,7 @@ export class Database {
       this.logger.instance.info('Connection established');
       return Database.connection;
     } catch (e) {
+      this.logger.instance.error(e.message);
       this.logger.instance.error('Cannot establish database connection');
       process.exit(1);
     }
