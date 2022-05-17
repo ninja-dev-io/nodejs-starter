@@ -13,6 +13,7 @@ workflows:
             - be-orb/test
           context: aws  
           repo: "${AWS_ECR}"
+          tag: "${AWS_RESOURCE_NAME_PREFIX}"
       - be-orb/deploy:
           requires:
             - be-orb/build
