@@ -16,7 +16,7 @@ interface IntrospectResponse {
 
 export const authorize: (scope: string[]) => (req: Request, res: Response, next: NextFunction) => void = (permissions: string[]) => {
   return async (req, res, next) => { 
-    const token = req.headers['x-auth-token'];
+    const token = req.headers['Authorization'];
     if (!token) return next(new BadRequestError('auth token is missing'));
     try {
       const { data } = await axios.post<IntrospectResponse>(
